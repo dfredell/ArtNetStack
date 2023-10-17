@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
+
+    namespace "fr.azelart.artnetstack"
     compileSdkVersion 24
     defaultConfig {
         minSdkVersion 15
