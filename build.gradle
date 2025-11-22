@@ -43,3 +43,9 @@ afterEvaluate {
         }
     }
 }
+
+// JitPack looks for this task
+task install(dependsOn: publishToMavenLocal) {
+    group = 'publishing'
+    description = 'Installs artifacts to local Maven repository (for JitPack)'
+}
