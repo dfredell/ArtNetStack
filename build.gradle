@@ -1,15 +1,7 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.2'
-    }
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
 
 android {
 
