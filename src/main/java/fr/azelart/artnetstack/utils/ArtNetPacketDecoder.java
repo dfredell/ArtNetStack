@@ -278,7 +278,10 @@ public class ArtNetPacketDecoder {
 
 		// An variable length array of DMX512 lighting data
 		final byte[] dmx = new byte[Constants.DMX_512_SIZE];
-		System.arraycopy(bytes, MagicNumbers.MAGIC_NUMBER_18, dmx, 0, Constants.DMX_512_SIZE);
+		int copyLen = Math.min(Constants.DMX_512_SIZE, bytes.length - MagicNumbers.MAGIC_NUMBER_18);
+		if (copyLen > 0) {
+			System.arraycopy(bytes, MagicNumbers.MAGIC_NUMBER_18, dmx, 0, copyLen);
+		}
 		artDMX.setData(byteArrayToIntArray(dmx));
 
 		return artDMX;
