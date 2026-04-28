@@ -6,7 +6,7 @@ plugins {
 android {
 
     namespace = "fr.azelart.artnetstack"
-    compileSdkVersion 36
+    compileSdkVersion 37
     defaultConfig {
         minSdkVersion 21
     }
@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    testImplementation libs.junit
 }
 
 afterEvaluate {
@@ -36,7 +36,8 @@ afterEvaluate {
 }
 
 // JitPack looks for this task
-task install(dependsOn: publishToMavenLocal) {
+tasks.register('install') {
+    dependsOn 'publishToMavenLocal'
     group = 'publishing'
     description = 'Installs artifacts to local Maven repository (for JitPack)'
 }
